@@ -41,7 +41,7 @@ async function onSubmitForm(evt) {
       captionsData: 'alt',
     }).refresh();
 
-    console.log(data.total);
+    // console.log(data.total);
     if (data.totalHits > perPage) {
       onVisible();
     }
@@ -71,7 +71,6 @@ async function addImgOnEvt() {
       behavior: 'smooth',
     });
     pageNumber = notLastPage(data, pageNumber);
-    console.log(pageNumber);
   } catch (error) {
     console.log(Error);
   }
@@ -86,8 +85,7 @@ document.addEventListener(
     ) {
       await addImgOnEvt();
     }
-  }),
-  1000
+  }, 250)
 );
 // 345;
 // debounce(

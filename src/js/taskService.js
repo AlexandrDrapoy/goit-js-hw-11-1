@@ -69,26 +69,3 @@ export function notLastPage(data, pageNumber) {
   }
   return (pageNumber += 1);
 }
-
-export async function addImgOnEvt() {
-  try {
-    const data = await getUser(requestText, pageNumber);
-    createMarkup(data);
-    lightbox = new SimpleLightbox('.gallery a', {
-      captionDelay: 250,
-      captionsData: 'alt',
-    }).refresh();
-    const { height: cardHeight } = document
-      .querySelector('.gallery')
-      .firstElementChild.getBoundingClientRect();
-
-    window.scrollBy({
-      top: cardHeight * 2.3,
-      behavior: 'smooth',
-    });
-    pageNumber = notLastPage(data, pageNumber);
-    console.log(pageNumber);
-  } catch (error) {
-    console.log(Error);
-  }
-}
